@@ -1,4 +1,5 @@
 # Remove this to run #!/usr/bin/env ruby
+
 require './app'
 
 def input_age

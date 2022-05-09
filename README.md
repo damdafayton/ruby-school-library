@@ -5,14 +5,14 @@
 - Ruby
 
 
-## Available Scripts
+## How to run
 
-In the project directory, you can:
+In `main.rb` change the line
+`# Remove this to run #!/usr/bin/env ruby` into
+`#!/usr/bin/env ruby`
 
-### Run the app in the development mode
-
-
-### Launch the test runner in the interactive watch mode
+Open bash or wsl ubuntu and type
+`./main.rb`
 
 
 ## Authors
