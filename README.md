@@ -5,11 +5,6 @@
 - Ruby
 
 
-## Live Demo
-
-- [Live Demo Link](https://)
-
-
 ## Available Scripts
 
 In the project directory, you can:
