@@ -12,6 +12,3 @@ class Student < Person
     end
 
 end
-
-s1 = Student.new(age = 19,'Maths')
-puts s1.age
