@@ -5,7 +5,7 @@ class Person < Nameable
   attr_reader :id
 
   def initialize(age, name = 'Unkown', parent_permission: true)
-    super
+    super()
     @age = age
     @name = name
     @parent_permission = parent_permission
@@ -22,6 +22,10 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def add_rental(book)
+    @rentals.push(book) unless @rentals.include?(book)
   end
 
   private

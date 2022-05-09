@@ -1,6 +1,6 @@
 class Decorator < Nameable
   def initialize(component)
-    super
+    super()
     @nameable = component
   end
 
