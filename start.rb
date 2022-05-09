@@ -1,17 +1,9 @@
-require './Person.rb'
-require './Student.rb'
-require './Teacher.rb'
+require './person'
+require './decorator'
 
-
-p1 = Person.new(17)
-
-p1.age
-p1.can_use_services?
-
-
-s1 = Student.new(age = 19,'Maths')
-puts s1.age
-
-
-t1 = Teacher.new(17, 'Jake', 'Carpenter')
-t1.can_use_services?
+person = Person.new(22, 'maximilianus')
+person.correct_name
+capitalized_person = CapitalizeDecorator.new(person)
+capitalized_person.correct_name
+capitalized_trimmed_person = TrimmerDecorator.new(capitalizedPerson)
+capitalized_trimmed_person.correct_name
