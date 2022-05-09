@@ -7,9 +7,8 @@
 
 ## How to run
 
-In `main.rb` change the line
-`# Remove this to run #!/usr/bin/env ruby` into
-`#!/usr/bin/env ruby`
+Add this: `#!/usr/bin/env ruby`
+to the beginning of `main.rb`.
 
 Open bash or wsl ubuntu and type
 `./main.rb`

@@ -1,4 +1,3 @@
-# Remove this to run #!/usr/bin/env ruby
 
 require './app'
 
