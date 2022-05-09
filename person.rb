@@ -10,6 +10,7 @@ class Person < Nameable
     @name = name
     @parent_permission = parent_permission
     @id = Random.new_seed
+    @rentals=[]
   end
 
   def can_use_services?
