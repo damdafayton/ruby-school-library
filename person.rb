@@ -1,13 +1,16 @@
-class Person
+require './nameable'
+
+class Person < Nameable
+  attr_accessor :age, :name
+  attr_reader :id
+
   def initialize(age, name = 'Unkown', parent_permission: true)
-    @id = Random.new_seed
+    super
     @age = age
     @name = name
     @parent_permission = parent_permission
+    @id = Random.new_seed
   end
-
-  attr_accessor :age, :name
-  attr_reader :id
 
   def can_use_services?
     if is_of_age? || @parent_permission
@@ -15,6 +18,10 @@ class Person
     else
       false
     end
+  end
+
+  def correct_name
+    @name
   end
 
   private
