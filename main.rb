@@ -1,5 +1,4 @@
-
-#!/usr/bin/env ruby
+# !/usr/bin/env ruby
 
 require './app'
 
@@ -40,13 +39,13 @@ def list_books(books)
 end
 
 def create_person(app)
-  person_selection = ask_user_i("Do you want to create a student (1) or a teacher (2)? Input the number")
-  age = ask_user("Age")
-  name = ask_user("Name")
-  
+  person_selection = ask_user_i('Do you want to create a student (1) or a teacher (2)? Input the number')
+  age = ask_user('Age')
+  name = ask_user('Name')
+
   case person_selection
   when 1
-    permission = ask_user?("Has parent permission")
+    permission = ask_user?('Has parent permission')
     app.create_student(age, name, permission)
     person_success
   when 2
@@ -54,7 +53,7 @@ def create_person(app)
     app.create_teacher(age, name, specialization)
     person_success
   else
-      puts 'Please select either 1 or 2.'
+    puts 'Please select either 1 or 2.'
   end
 end
 
