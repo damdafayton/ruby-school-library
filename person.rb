@@ -33,7 +33,7 @@ class Person < Nameable
 
 
   def make_object
-    object_data = {:age=> @age, :name=> @name, :id=> @id, :rentals => @rentals}
+    object_data = {:age=> @age, :name=> @name, :id=> @id}
     @object_data = object_data
   end
 

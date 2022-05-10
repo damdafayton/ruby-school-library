@@ -1,4 +1,5 @@
 require 'json'
+require 'pry'
 
 def string_to_array(str)
   pair_list = str.split(',')
@@ -25,6 +26,7 @@ class FileHandler
 
   def write(data)
     json = JSON.generate(data)
+    binding.pry
     File.write(@file_name, json)
   end
 

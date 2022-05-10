@@ -105,7 +105,7 @@ def main
   puts 'Welcome to School Library App.'
 
   app_should_run = true
-  binding.pry
+  # binding.pry
   while app_should_run
     puts options
     user_selection = gets.to_i

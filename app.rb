@@ -16,10 +16,9 @@ class App
     @books_file = FileHandler.new('books')
     @people_file = FileHandler.new('people')
     @rentals_file = FileHandler.new('rentals')
-    @books = @books_file.read.map{ |el| Book.new(el["title"], el["author"], el["rentals"])}
+    @books = @books_file.read.map{ |el| Book.new(el["title"], el["author"])}
     @people = @people_file.read.map { |el|
     # [{"age":"20","name":"bob","id":0,"rentals":[],"classroom":[],"class":"Student","parent_permission":true}]
-      binding.pry
       if el["class"].include?('Student')
         Student.new(el["age"], el["name"], el["parent_permission"], el["classroom"])
       else
@@ -27,7 +26,10 @@ class App
       end
     }
     @rentals = @rentals_file.read.map{|el|
-      Rental.new(el["book"], el["person"], el["date"])
+      book = @books.select{|book| book.title == el["book_title"]}[0]
+      person = @people.select{|person| person.id == el["person_id"]}[0]
+      binding.pry
+      Rental.new(book, person, el["date"])
     }
   end
 
@@ -47,7 +49,8 @@ class App
   end
 
   def create_rental(book, person)
-    Rental.new(book, person)
+    rental = Rental.new(book, person)
+    @rentals.push(rental)
   end
 
   def list_books

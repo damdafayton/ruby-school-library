@@ -12,6 +12,6 @@ class Rental
   end
 
   def make_object
-    {:book=> @book, :person => @person, :date => @date}  
+    {:book_title=> @book.title, :person_id => @person.id, :date => @date}  
   end
 end
