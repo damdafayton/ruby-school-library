@@ -5,19 +5,13 @@
 - Ruby
 
 
-## Live Demo
+## How to run
 
-- [Live Demo Link](https://)
+Add this: `#!/usr/bin/env ruby`
+to the beginning of `main.rb`.
 
-
-## Available Scripts
-
-In the project directory, you can:
-
-### Run the app in the development mode
-
-
-### Launch the test runner in the interactive watch mode
+Open bash or wsl ubuntu and type
+`./main.rb`
 
 
 ## Authors
