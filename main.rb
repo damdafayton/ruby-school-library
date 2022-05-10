@@ -3,29 +3,24 @@
 
 require './app'
 
-def input_age
-  print 'Age: '
-  gets.to_i
-end
-
-def input_name
-  print 'Name: '
+def ask_user(ask)
+  print "#{ask}: "
   gets.chomp
 end
 
-def input_permission
-  print 'Has parent permission? [Y, N]: '
+def ask_user_i(ask)
+  print "#{ask}: "
+  gets.to_i
+end
+
+def ask_user?(ask)
+  print "#{ask}? [Y, N]: "
   input = gets.chomp.downcase
   if input.start_with?('y')
     true
   elsif input.start_with?('n')
     false
   end
-end
-
-def input_specialization
-  print 'Specialization: '
-  gets.chomp
 end
 
 def person_success
@@ -45,31 +40,22 @@ def list_books(books)
 end
 
 def create_person(app)
-  print 'Do you want to create a student (1) or a teacher (2)? Input the number: '
-  person_selection = gets.to_i
+  person_selection = ask_user_i("Do you want to create a student (1) or a teacher (2)? Input the number")
+  age = ask_user("Age")
+  name = ask_user("Name")
   case person_selection
   when 1
-    age = input_age
-    name = input_name
-    permission = input_permission
+    permission = ask_user?("Has parent permission")
     app.create_student(age, name, permission)
     person_success
-  when 2
-    age = input_age
-    name = input_name
-    specialization = input_specialization
-    app.create_teacher(age, name, specialization)
-    person_success
-  else
+  when 
     puts 'Please select either 1 or 2.'
   end
 end
 
 def create_book(app)
-  print 'Enter title: '
-  title = gets.chomp
-  print 'Enter author: '
-  author = gets.chomp
+  title = ask_user('Enter title')
+  author = ask_user('Enter author')
   app.create_book(title, author)
   puts 'Book created successfully'
 end
@@ -88,8 +74,7 @@ def create_rental(app)
 end
 
 def list_rentals(app)
-  print 'ID of person: '
-  id_to_query = gets.to_i
+  id_to_query = ask_user_i('ID of person')
   puts 'Rentals: '
   rentals = app.list_rentals_for_given_id(id_to_query)
   rentals.each { |rental| puts "Date: #{rental.date}, Book '#{rental.book.title}' by #{rental.book.author}" }
