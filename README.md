@@ -18,8 +18,10 @@ And all of this will be built in a beautiful and well-organized way!
 
 ## How to run
 
-`git clone https://github.com/damdafayton/ruby-school-library`
-`cd ruby-school-library`
+```
+git clone https://github.com/damdafayton/ruby-school-library
+cd ruby-school-library
+```
 
 Remove the empty line at the beginning of `main.rb`.
 
@@ -28,7 +30,7 @@ Open bash or wsl ubuntu and type
 
 If that doesnt work
 
-`ruby ./main.rb'
+`ruby ./main.rb`
 
 
 ## Authors
