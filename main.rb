@@ -43,13 +43,18 @@ def create_person(app)
   person_selection = ask_user_i("Do you want to create a student (1) or a teacher (2)? Input the number")
   age = ask_user("Age")
   name = ask_user("Name")
+  
   case person_selection
   when 1
     permission = ask_user?("Has parent permission")
     app.create_student(age, name, permission)
     person_success
-  when 
-    puts 'Please select either 1 or 2.'
+  when 2
+    specialization = ask_user('Specialization')
+    app.create_teacher(age, name, specialization)
+    person_success
+  else
+      puts 'Please select either 1 or 2.'
   end
 end
 
@@ -68,8 +73,8 @@ def create_rental(app)
   puts "\n Select a person from the following list by number (not id)"
   list_people(app.people)
   selected_person_idx = gets.to_i
-  app.create_rental(app.books[selected_book_idx], app.people[selected_person_idx])
 
+  app.create_rental(app.books[selected_book_idx], app.people[selected_person_idx])
   puts 'Rental created successfully'
 end
 
