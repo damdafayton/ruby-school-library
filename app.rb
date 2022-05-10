@@ -5,12 +5,14 @@ require './teacher'
 require './decorator'
 require './classroom'
 require './rental'
+require './file.rb'
 
 class App
   attr_reader :books, :people
 
   def initialize
-    @books = []
+    @books_file = File.new('books')
+    @books = @books_file.read
     @people = []
   end
 
