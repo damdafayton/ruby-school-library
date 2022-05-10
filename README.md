@@ -23,7 +23,7 @@ git clone https://github.com/damdafayton/ruby-school-library
 cd ruby-school-library
 ```
 
-Remove the empty line at the beginning of `main.rb`.
+Remove the empty line at the beginning of `main.rb` file.
 
 Open bash or wsl ubuntu and type
 `./main.rb`
