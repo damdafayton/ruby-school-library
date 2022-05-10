@@ -1,9 +1,9 @@
-require './book'
-require './person'
-require './student'
-require './decorator'
-require './classroom'
-require './rental'
+require './classes/book'
+require './classes/person'
+require './classes/student'
+require './classes/decorator'
+require './classes/classroom'
+require './classes/rental'
 
 person = Person.new(22, 'maximilianus')
 person.correct_name

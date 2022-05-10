@@ -15,7 +15,6 @@ class Book
   end
 
   def make_object
-    {:title=> @title, :author => @author}  
+    { title: @title, author: @author }
   end
-
 end

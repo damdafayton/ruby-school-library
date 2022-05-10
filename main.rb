@@ -50,7 +50,7 @@ def create_book(app)
   title = ask_user('Enter title')
   author = ask_user('Enter author')
   app.create_book(title, author)
-  binding.pry
+  # binding.pry
   puts 'Book created successfully'
 end
 
@@ -82,9 +82,9 @@ end
 
 def quit_app(app)
   app.exit
-  return false
+  puts 'Data saved'
+  false
 end
-
 
 def options
   [
@@ -97,6 +97,14 @@ def options
     '5 - Create a rental',
     '6 - List all rentals for a given person id',
     '7 - Save and exit'
+  ]
+end
+
+def options_small
+  [
+    '',
+    'Press enter to list menu',
+    'Press 7 and enter to save and exit'
   ]
 end
 
@@ -116,8 +124,16 @@ def main
     when 4 then create_book(app)
     when 5 then create_rental(app)
     when 6 then list_rentals(app)
-    when 7 then app_should_run = quit_app(app)
+    when 7
+      app_should_run = quit_app(app)
+      break
     else puts 'Please input a number between 1 and 7'
+    end
+
+    puts options_small
+    user_selection = gets.to_i
+    case user_selection
+    when 7 then app_should_run = quit_app(app)
     end
   end
 end

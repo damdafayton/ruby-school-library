@@ -1,4 +1,4 @@
-require './person'
+require_relative './person'
 require 'pry'
 
 class Student < Person
@@ -22,7 +22,7 @@ class Student < Person
   def make_object
     super()
     object_data = @object_data
-    binding.pry
+    # binding.pry
     object_data[:classroom] = @classroom
     object_data[:class] = 'Student'
     object_data[:parent_permission] = @parent_permission
