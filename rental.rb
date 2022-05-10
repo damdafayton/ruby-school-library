@@ -7,7 +7,7 @@ class Rental
     @date = DateTime.now
     @book = book
     @person = person
-    book.add_rental(self)
-    person.add_rental(self)
+    book.add_rental(self) if book
+    person.add_rental(self) if person
   end
 end
