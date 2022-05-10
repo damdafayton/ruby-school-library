@@ -1,6 +1,8 @@
-
+# bug introduced into book selection under new rental option
+# binding.pry
 #!/usr/bin/env ruby
 
+require 'pry'
 require './app'
 
 def input_age
@@ -77,7 +79,7 @@ end
 def create_rental(app)
   puts "\n Select a book from the following list by number"
   list_books(app.books)
-  selected_book_idx = gets.to_i
+  selected_book_idx = gets
 
   puts "\n Select a person from the following list by number (not id)"
   list_people(app.people)
@@ -112,7 +114,7 @@ end
 def main
   app = App.new
   puts 'Welcome to School Library App.'
-
+  binding.pry
   app_should_run = true
   while app_should_run
     puts options

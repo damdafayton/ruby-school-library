@@ -1,3 +1,5 @@
+# Add here documentation
+
 require './book'
 require './person'
 require './student'
@@ -25,6 +27,7 @@ class App
   end
 
   def create_book(title, author)
+    # Needs documentation
     new_book = Book.new(title, author)
     @books.push(new_book)
   end
