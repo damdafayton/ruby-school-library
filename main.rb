@@ -1,31 +1,25 @@
-
-#!/usr/bin/env ruby
+# !/usr/bin/env ruby
 
 require './app'
 
-def input_age
-  print 'Age: '
-  gets.to_i
-end
-
-def input_name
-  print 'Name: '
+def ask_user(ask)
+  print "#{ask}: "
   gets.chomp
 end
 
-def input_permission
-  print 'Has parent permission? [Y, N]: '
+def ask_user_i(ask)
+  print "#{ask}: "
+  gets.to_i
+end
+
+def ask_user?(ask)
+  print "#{ask}? [Y, N]: "
   input = gets.chomp.downcase
   if input.start_with?('y')
     true
   elsif input.start_with?('n')
     false
   end
-end
-
-def input_specialization
-  print 'Specialization: '
-  gets.chomp
 end
 
 def person_success
@@ -45,19 +39,17 @@ def list_books(books)
 end
 
 def create_person(app)
-  print 'Do you want to create a student (1) or a teacher (2)? Input the number: '
-  person_selection = gets.to_i
+  person_selection = ask_user_i('Do you want to create a student (1) or a teacher (2)? Input the number')
+  age = ask_user('Age')
+  name = ask_user('Name')
+
   case person_selection
   when 1
-    age = input_age
-    name = input_name
-    permission = input_permission
+    permission = ask_user?('Has parent permission')
     app.create_student(age, name, permission)
     person_success
   when 2
-    age = input_age
-    name = input_name
-    specialization = input_specialization
+    specialization = ask_user('Specialization')
     app.create_teacher(age, name, specialization)
     person_success
   else
@@ -66,10 +58,8 @@ def create_person(app)
 end
 
 def create_book(app)
-  print 'Enter title: '
-  title = gets.chomp
-  print 'Enter author: '
-  author = gets.chomp
+  title = ask_user('Enter title')
+  author = ask_user('Enter author')
   app.create_book(title, author)
   puts 'Book created successfully'
 end
@@ -82,14 +72,13 @@ def create_rental(app)
   puts "\n Select a person from the following list by number (not id)"
   list_people(app.people)
   selected_person_idx = gets.to_i
-  app.create_rental(app.books[selected_book_idx], app.people[selected_person_idx])
 
+  app.create_rental(app.books[selected_book_idx], app.people[selected_person_idx])
   puts 'Rental created successfully'
 end
 
 def list_rentals(app)
-  print 'ID of person: '
-  id_to_query = gets.to_i
+  id_to_query = ask_user_i('ID of person')
   puts 'Rentals: '
   rentals = app.list_rentals_for_given_id(id_to_query)
   rentals.each { |rental| puts "Date: #{rental.date}, Book '#{rental.book.title}' by #{rental.book.author}" }
