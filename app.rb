@@ -17,7 +17,6 @@ class App
     @rentals_file = FileHandler.new('rentals')
     @books = @books_file.read.map { |el| Book.new(el['title'], el['author']) }
     @people = @people_file.read.map do |el|
-      # [{"age":"20","name":"bob","id":0,"rentals":[],"classroom":[],"class":"Student","parent_permission":true}]
       if el['class'].include?('Student')
         Student.new(el['age'], el['name'], el['parent_permission'], el['classroom'])
       else
