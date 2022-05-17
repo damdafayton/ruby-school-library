@@ -1,3 +1,5 @@
+require_relative './nameable'
+
 class Decorator < Nameable
   def initialize(component)
     super()

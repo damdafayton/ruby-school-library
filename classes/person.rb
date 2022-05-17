@@ -1,4 +1,4 @@
-require './nameable'
+require_relative './nameable'
 
 class Person < Nameable
   @@id_counter = 0
@@ -29,6 +29,11 @@ class Person < Nameable
 
   def add_rental(rental)
     @rentals.push(rental) unless @rentals.include?(rental)
+  end
+
+  def make_object
+    object_data = { age: @age, name: @name, id: @id }
+    @object_data = object_data
   end
 
   private
