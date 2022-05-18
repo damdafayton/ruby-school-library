@@ -4,7 +4,7 @@ require 'pry'
 class Student < Person
   attr_reader :classroom, :parent_permission
 
-  def initialize(age, name, parent_permission, classroom = [])
+  def initialize(age, name, classroom = [], parent_permission: true)
     super(age, name)
     @classroom = classroom
     @parent_permission = parent_permission

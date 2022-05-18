@@ -32,7 +32,7 @@ class App
   end
 
   def create_student(age, name, permission)
-    new_person = Student.new(age, name, permission)
+    new_person = Student.new(age, name, parent_permission: permission)
     @people.push(new_person)
   end
 
